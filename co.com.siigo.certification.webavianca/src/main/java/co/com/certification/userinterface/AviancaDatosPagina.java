@@ -12,16 +12,16 @@ public class AviancaDatosPagina extends PageObject {
 
             .located(By.xpath("//*[@id='cookiePolicy']/div/div/div[2]/button"));
 
-    public static final Target LABEL_INPUT1 = Target.the("Seleccionar desde")
+    public static final Target TXT_DESDE = Target.the("Seleccionar desde")
             .located(By.xpath("//div[contains(@id,'ida_regreso')]//input[contains(@id,'pbOrigen_')]"));
 
-    public static final Target LABEL_INPUT2 = Target.the("Seleccionar hasta")
+    public static final Target TXT_HACIA = Target.the("Seleccionar hasta")
             .located(By.xpath("//div[contains(@id,'ida_regreso')]//input[contains(@id,'pbDestino')]"));
 
-    public static final Target LABEL_INPUT3 = Target.the("Seleccionar Fecha ida")
+    public static final Target FECHA_INICIAL = Target.the("Seleccionar Fecha ida")
             .located(By.xpath("//div[contains(@id,'ida_regreso')]//input[contains(@id,'pbFechas_1')]"));
 
-    public static final Target LABEL_INPUT4 = Target.the("Seleccionar Fecha ida")
+    public static final Target FECHA_FINAL = Target.the("Seleccionar Fecha regreso")
             .located(By.xpath("//div[contains(@id,'ida_regreso')]//input[contains(@id,'pbFechas_1')]"));
 
 

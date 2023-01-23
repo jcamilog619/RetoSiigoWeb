@@ -1,6 +1,5 @@
 package co.com.certification.taks;
 
-import co.com.certification.interactions.SeleccionarLista;
 import co.com.certification.userinterface.AviancaDatosPagina;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
@@ -27,27 +26,21 @@ public class Reservar implements Task {
 
         actor.attemptsTo(Click.on(AviancaDatosPagina.COOKIES_ANDCREAM));
 
-        actor.attemptsTo(Click.on(AviancaDatosPagina.LABEL_INPUT1));
+        actor.attemptsTo(Click.on(AviancaDatosPagina.TXT_DESDE));
         actor.attemptsTo(
-                Enter.theValue(testData.get("ciudadIda").toString()).into(AviancaDatosPagina.LABEL_INPUT1)
+                Enter.theValue(testData.get("ciudadIda").toString()).into(AviancaDatosPagina.TXT_DESDE)
                           .thenHit(Keys.ARROW_DOWN),
-                Hit.the(Keys.ENTER).into(AviancaDatosPagina.LABEL_INPUT1));
+                Hit.the(Keys.ENTER).into(AviancaDatosPagina.TXT_DESDE));
 
 
         actor.attemptsTo(
-                Click.on(AviancaDatosPagina.LABEL_INPUT2));
+                Click.on(AviancaDatosPagina.TXT_HACIA));
         actor.attemptsTo(
-                Enter.theValue(testData.get("ciudadRegreso").toString()).into(AviancaDatosPagina.LABEL_INPUT2)
+                Enter.theValue(testData.get("ciudadRegreso").toString()).into(AviancaDatosPagina.TXT_HACIA)
                         .thenHit(Keys.ARROW_DOWN),
-                Hit.the(Keys.ENTER).into(aviancaDatosPagina.LABEL_INPUT2),
-                Click.on(AviancaDatosPagina.LABEL_INPUT3));
-
-        actor.attemptsTo(
-                Click.on(AviancaDatosPagina.LABEL_INPUT3)
-                //SeleccionarLista.desde()
-        );
-
-
+                Hit.the(Keys.ENTER).into(aviancaDatosPagina.TXT_HACIA),
+                Click.on(AviancaDatosPagina.FECHA_INICIAL),
+                Click.on(AviancaDatosPagina.FECHA_FINAL));
     }
     public static Reservar aviancaPage(Map<String, Object> testData) {
         return new Reservar(testData);

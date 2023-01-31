@@ -6,12 +6,12 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Open;
 
-public class AbrirAvianca implements Task {
+public class AbrirNavegadorDe implements Task {
 
     private NavegadorPage navegadorPage;
 
-    public static AbrirAvianca laPagina(){
-        return Tasks.instrumented(AbrirAvianca.class);
+    public static AbrirNavegadorDe laPagina(){
+        return Tasks.instrumented(AbrirNavegadorDe.class);
     }
 
     @Override

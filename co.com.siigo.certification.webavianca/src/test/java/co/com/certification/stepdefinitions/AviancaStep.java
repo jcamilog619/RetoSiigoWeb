@@ -1,13 +1,12 @@
 package co.com.certification.stepdefinitions;
 
 import co.com.certification.models.TestData;
-import co.com.certification.taks.AbrirAvianca;
-import co.com.certification.taks.Cargar;
-import co.com.certification.taks.Reservar;
+import co.com.certification.taks.*;
 import cucumber.api.java.Before;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Entonces;
+import cucumber.api.java.es.Y;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 
@@ -23,15 +22,20 @@ public class AviancaStep {
     }
 
     @Dado("^que el (.*) ingreso al navegador$")
-    public void queElUsuarioIngresoAlNavegador(String cliente,List<Map<String, Object>> infoCliente) {
+    public void queElUsuarioIngresoAlNavegador(String cliente) {
         OnStage.theActorCalled(cliente).wasAbleTo(
-                Cargar.datosCon(infoCliente),
-                AbrirAvianca.laPagina());
+                AbrirNavegadorDe.laPagina());
     }
 
+    @Y("^selecciono la pagina de avianca$")
+    public void seleccionoLaPaginaDeAvianca(List<Map<String, Object>> infoCliente) {
+        OnStage.theActorInTheSpotlight().wasAbleTo(
+                DatosAvianca.pagina(),
+                Cargar.datosCon(infoCliente));
+    }
 
-    @Cuando("^realizo la busqueda de la reserva en el portal de avianca$")
-    public void realizoLaBusquedaDeLaReservaEnElPortalDeAvianca() {
+    @Cuando("^realiza la busqueda de la reserva en el portal de avianca$")
+    public void realizaLaBusquedaDeLaReservaEnElPortalDeAvianca() {
         OnStage.theActorInTheSpotlight().attemptsTo(
                 Reservar.aviancaPage(TestData.info()));
     }
